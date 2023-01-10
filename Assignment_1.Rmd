@@ -1,0 +1,17 @@
+---
+title: "Assignment_1"
+author: "Neel Epstein"
+date: "2023-01-10"
+output: html_document
+---
+
+setwd() - sets working directory
+getwd() - gets working directory
+
+git status (shows status of changes)
+git add -A (shows which files to be committed)
+git commit -am "<message>" (commits files to local directory)
+git push (commits changes to github)
+git pull (downloads changes from github)
+
+`## this is where I can put anything`
