@@ -1,0 +1,11 @@
+---
+title: "BIOL1007 Web Page"
+author: "Neel Epstein"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: lumen
+---
+
+## Assignments
+[Assignment_1](Assignment_1.html)
