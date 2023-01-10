@@ -1,0 +1,60 @@
+---
+title: "Assignment_2"
+author: "Neel Epstein"
+date: "2023-01-10"
+output: html_document
+---
+
+## 1. Image  
+![image link](https://upload.wikimedia.org/wikipedia/commons/d/da/Baldmountainid.jpg)  
+
+## 2. Table  
+
+Cool  | Not Cool | Insane | Crazy | Unreal
+------------- | ------------- | ------------- | ------------- | -------------
+1  | 33 | 33 | 2 | 33
+6  | 9 | 23 | 123 | 2
+54 | 32 | 4 | 54 | 3
+
+## 3. Bold and Italic Text  
+
+This is the *coolest* programming language. The picture above is of **Sun Valley, Idaho**. Now I can **emphasize** certain *words*.
+
+## 4. A Bulleted List  
+
+* Item 1
+    + Item 1a
+* Item 2
+    + Item 2a
+    + Item 2b
+
+## 5. A Numbered List  
+
+1. Item 1
+2. Item 2
+    + Item 2a
+3. Item 3
+    + Item 3a
+    + Item 3b
+
+## 6. A Link to a Website  
+
+[Amazon](https://www.amazon.com/)  
+
+## 7. Multiple Sized Headers  
+
+### Header 3
+#### Header 4
+##### Header 5
+
+## 8. Superscript and Subscript  
+
+H~2~O is necessary for all life on earth. It can be split into 2 ions, H^+^ and OH^-^.
+
+## 9. An Equation  
+
+$$10*5 = 50$$
+
+## 10. Plain Text Within Fencing  
+
+`This is plain text that is fenced in`
