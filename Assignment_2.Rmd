@@ -1,5 +1,5 @@
 ---
-title: "Assignment_2"
+title: "Assignment 2"
 author: "Neel Epstein"
 date: "2023-01-10"
 output: 

@@ -1,8 +1,10 @@
 ---
-title: "Assignment_1"
+title: "Assignment 1"
 author: "Neel Epstein"
 date: "2023-01-10"
-output: html_document
+output: 
+ prettydoc::html_pretty:
+    theme: lumen
 ---
 
 setwd() - sets working directory  
