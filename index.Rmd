@@ -8,5 +8,5 @@ output:
 ---
 
 ## Assignments
-[Assignment_1](Assignment_1.html)  
-[Assignment_2](Assignment_2.html)  
+[Assignment 1](Assignment_1.html)  
+[Assignment 2](Assignment_2.html)  
