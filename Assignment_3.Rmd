@@ -2,29 +2,72 @@
 title: "Assignment 3"
 author: "Neel Epstein"
 date: "2023-01-12"
-output: html_document
+output:  
+  prettydoc::html_pretty:
+    theme: lumen
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+## Question 1
+
+```{r Define Variables}
+x <- 1.1
+a <- 2.2
+b <- 3.3
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r}
+z <- c(x^(a^b), (x^a)^b, 3*x^3 + 2*x^2 + 1)
+z
 ```
 
-## Including Plots
+## Question 2
 
-You can also embed plots, for example:
+```{r}
+two_a <- c(seq(1:8), rev(seq(1:7)))
+two_a
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+two_b <- c(rep(seq(1:5), seq(1:5)))
+two_b
+
+two_c <- c(rep(rev(seq(1:5)), seq(1:5)))
+two_c
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Question 3  
+
+### 3a.  
+```{r 3a}
+queue <- c("sheep", "fox", "owl", "ant")
+queue <- c(queue, "serpent")
+queue
+```
+
+### 3b.  
+```{r 3b}
+queue <- queue[2:5]
+queue
+```
+
+### 3c.  
+```{r 3c}
+queue <- c("donkey", queue)
+queue
+```
+
+### 3d.  
+```{r 3d}
+queue <- queue[1:4]
+queue
+```
+
+### 3e.  
+```{r 3e}
+queue <- append(queue, "aphid", after = 3)
+queue
+```
+
+### 3f.  
+```{r 3f}
+queue <- which(queue == "aphid")
+queue
+```
