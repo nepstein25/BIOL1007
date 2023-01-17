@@ -1,0 +1,65 @@
+---
+title: "Weekly Assignment 1"
+author: "Neel Epstein"
+date: "2023-01-17"
+output: 
+  prettydoc::html_pretty:
+    theme: lumen
+---
+
+# How to set up a GitHub web page in RStudio
+
+1. Download R from https://cran.r-project.org/ and RStudio from https://posit.co/download/rstudio-desktop/ and follow the instructions given by the installers.  
+
+2. Go to https://github.com/ and create a GitHub account.  
+
+3. Download git using the instructions on https://git-scm.com/downloads.  
+
+    + If using a Mac, you must first install homebrew to install git. To install homebrew, download the "Command Line Tools for Xcode" on https://developer.apple.com/download/all/.  
+    + You can download homebrew by opening Terminal and copying and pasting the code from https://brew.sh/ and running it. Then, follow the prompts that come up as you download homebrew.  
+    + Once hombrew is installed, you should type "brew install git" into Terminal and run the code. Then, follow the prompts on your screen.  
+
+4. Go to https://github.com/ and navigate to your repositories. Then, click the green button to create a new repository. Name the repository and make sure to add a README file as well as choose an MIT License.  
+
+5. To connect your GitHub account to RStudio you must create a personal access token (API key).  
+
+    + First, go to https://github.com/settings/tokens or navigate to settings and then developer settings from the home page.  
+    + Go to "Personal access tokens" and select "Tokens (classic)".  
+    + Then, click "Generate new token" and select "Generate new token (classic)" from the dropdown menu.  
+    + You will be prompted to enter your account password.  
+    + Then, name your token, appropriately set the expiration date, and click "repo" from the list of options.  
+    + Finally, press the green "Generate token" button.  
+    + You will then be redirected to a page where the token will be visible. Copy and paste the token into a place for safekeeping. **You will not see this token ever again!**  
+
+6. Navigate to the repositories page on GitHub and click on the repository you wish to link to a webpage. Then click the green code button and copy the URL.
+
+7. Then open RStudio. Go to the top left corner of the window and click on the second left-most icon of a blue cube with an R inside to create new project. You will be prompted with a menu of different types of projects. Choose a "version control" project and select "Git" as the type of repository.
+
+    + Then, enter the copied URL into the "Repository URL" text box and give it the same name as GitHub.  
+    + Make sure to save the project folder to your desktop. (Do not save to a cloud location as it create problems later on)
+    + You will then be prompted to enter your username and password. Enter your GitHub account username and use the personal access token you created earlier as your password.  
+
+9. Once the project has been created and linked with GitHub create a R Markdown file by clicking on the icon in the left-hand corner and selecting "R Markdown". Name the file "index" (case sensitive) and save it to the project folder. This file will be your website's homepage.
+    
+8. Create another R Markdown file by clicking on the icon in the left-hand corner and selecting "R Markdown". Name this file "Test 1" and save it to the project folder. Knit this file to a .html file by clicking the knit button with a ball of yarn.  
+
+10. Navigate back to the index R Markdown file and type `[Test 1](Test 1.html)`. Then knit this R Markdown to a .html. This will provide a link to another page from your homepage.  
+
+11. To commit these changes to your GitHub web page you must follow these steps:
+
+    + First navigate to the terminal window in RStudio (next to the console window).
+    + First type and run `git status` to show the status of the changes you made.  
+    + Then, run `git add -A` which adds these new files.  
+    + You should then run `git commit -am "<message>"` which commits files to a local directory (you should include a message in the quotations about what changes you are making).
+    + Finally run `git push` which commits these changes to GitHub.  
+
+12. Then navigate to the GitHub repositories page and select the repository you have been working on. Then, navigate to the settings tab and scroll down and select "Pages". Then, go to the "Branch" subsection and select "main" from the drop-down menu. 
+13. Refresh the page, and at some point over the next couple of minutes and you will get a message that reads "Your site is live at `https://[GitHub_username].github.io/[repository_name]/`"
+
+    + The .html version of your index file will appear once you load your web page.  
+
+### Troubleshooting
+
+* If it is taking a long time to download the Xcode Command Line Tools or Homebrew, make sure you are not in a room with many other people also attempting to download these programs since it slows the connection. Move to another room to get much faster download speeds.  
+
+* If your webpage is not displaying, make sure that you have named the file exactly "index". Your web page will not display if the name is even slightly different.

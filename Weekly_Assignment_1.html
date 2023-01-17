@@ -14,7 +14,7 @@
 
 <meta name="date" content="2023-01-17" />
 
-<title>BIOL1007 Web Page</title>
+<title>Weekly Assignment 1</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
 
 <section class="page-header">
-<h1 class="title toc-ignore project-name">BIOL1007 Web Page</h1>
+<h1 class="title toc-ignore project-name">Weekly Assignment 1</h1>
 <h4 class="author project-author">Neel Epstein</h4>
 <h4 class="date project-date">2023-01-17</h4>
 </section>
@@ -56,15 +56,123 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
 
 <section class="main-content">
-<div id="daily-assignments" class="section level2">
-<h2>Daily Assignments</h2>
-<p><a href="Assignment_1.html">Assignment 1</a><br />
-<a href="Assignment_2.html">Assignment 2</a><br />
-<a href="Assignment_3.html">Assignment 3</a></p>
+<div id="how-to-set-up-a-github-web-page-in-rstudio" class="section level1">
+<h1>How to set up a GitHub web page in RStudio</h1>
+<ol style="list-style-type: decimal">
+<li><p>Download R from <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> and RStudio from <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a> and follow
+the instructions given by the installers.</p></li>
+<li><p>Go to <a href="https://github.com/" class="uri">https://github.com/</a> and create a GitHub
+account.</p></li>
+<li><p>Download git using the instructions on <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a>.</p>
+<ul>
+<li>If using a Mac, you must first install homebrew to install git. To
+install homebrew, download the “Command Line Tools for Xcode” on <a href="https://developer.apple.com/download/all/" class="uri">https://developer.apple.com/download/all/</a>.<br />
+</li>
+<li>You can download homebrew by opening Terminal and copying and
+pasting the code from <a href="https://brew.sh/" class="uri">https://brew.sh/</a> and running it. Then, follow the
+prompts that come up as you download homebrew.<br />
+</li>
+<li>Once hombrew is installed, you should type “brew install git” into
+Terminal and run the code. Then, follow the prompts on your screen.</li>
+</ul></li>
+<li><p>Go to <a href="https://github.com/" class="uri">https://github.com/</a> and navigate to your repositories.
+Then, click the green button to create a new repository. Name the
+repository and make sure to add a README file as well as choose an MIT
+License.</p></li>
+<li><p>To connect your GitHub account to RStudio you must create a
+personal access token (API key).</p>
+<ul>
+<li>First, go to <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a> or navigate to
+settings and then developer settings from the home page.<br />
+</li>
+<li>Go to “Personal access tokens” and select “Tokens (classic)”.<br />
+</li>
+<li>Then, click “Generate new token” and select “Generate new token
+(classic)” from the dropdown menu.<br />
+</li>
+<li>You will be prompted to enter your account password.<br />
+</li>
+<li>Then, name your token, appropriately set the expiration date, and
+click “repo” from the list of options.<br />
+</li>
+<li>Finally, press the green “Generate token” button.<br />
+</li>
+<li>You will then be redirected to a page where the token will be
+visible. Copy and paste the token into a place for safekeeping.
+<strong>You will not see this token ever again!</strong></li>
+</ul></li>
+<li><p>Navigate to the repositories page on GitHub and click on the
+repository you wish to link to a webpage. Then click the green code
+button and copy the URL.</p></li>
+<li><p>Then open RStudio. Go to the top left corner of the window and
+click on the second left-most icon of a blue cube with an R inside to
+create new project. You will be prompted with a menu of different types
+of projects. Choose a “version control” project and select “Git” as the
+type of repository.</p>
+<ul>
+<li>Then, enter the copied URL into the “Repository URL” text box and
+give it the same name as GitHub.<br />
+</li>
+<li>Make sure to save the project folder to your desktop. (Do not save
+to a cloud location as it create problems later on)</li>
+<li>You will then be prompted to enter your username and password. Enter
+your GitHub account username and use the personal access token you
+created earlier as your password.</li>
+</ul></li>
+<li><p>Once the project has been created and linked with GitHub create a
+R Markdown file by clicking on the icon in the left-hand corner and
+selecting “R Markdown”. Name the file “index” (case sensitive) and save
+it to the project folder. This file will be your website’s
+homepage.</p></li>
+<li><p>Create another R Markdown file by clicking on the icon in the
+left-hand corner and selecting “R Markdown”. Name this file “Test 1” and
+save it to the project folder. Knit this file to a .html file by
+clicking the knit button with a ball of yarn.</p></li>
+<li><p>Navigate back to the index R Markdown file and type
+<code>[Test 1](Test 1.html)</code>. Then knit this R Markdown to a
+.html. This will provide a link to another page from your
+homepage.</p></li>
+<li><p>To commit these changes to your GitHub web page you must follow
+these steps:</p>
+<ul>
+<li>First navigate to the terminal window in RStudio (next to the
+console window).</li>
+<li>First type and run <code>git status</code> to show the status of the
+changes you made.<br />
+</li>
+<li>Then, run <code>git add -A</code> which adds these new files.<br />
+</li>
+<li>You should then run <code>git commit -am &quot;&lt;message&gt;&quot;</code>
+which commits files to a local directory (you should include a message
+in the quotations about what changes you are making).</li>
+<li>Finally run <code>git push</code> which commits these changes to
+GitHub.</li>
+</ul></li>
+<li><p>Then navigate to the GitHub repositories page and select the
+repository you have been working on. Then, navigate to the settings tab
+and scroll down and select “Pages”. Then, go to the “Branch” subsection
+and select “main” from the drop-down menu.</p></li>
+<li><p>Refresh the page, and at some point over the next couple of
+minutes and you will get a message that reads “Your site is live at
+<code>https://[GitHub_username].github.io/[repository_name]/</code>”</p>
+<ul>
+<li>The .html version of your index file will appear once you load your
+web page.</li>
+</ul></li>
+</ol>
+<div id="troubleshooting" class="section level3">
+<h3>Troubleshooting</h3>
+<ul>
+<li><p>If it is taking a long time to download the Xcode Command Line
+Tools or Homebrew, make sure you are not in a room with many other
+people also attempting to download these programs since it slows the
+connection. Move to another room to get much faster download
+speeds.</p></li>
+<li><p>If your webpage is not displaying, make sure that you have named
+the file exactly “index”. Your web page will not display if the name is
+even slightly different.</p></li>
+</ul>
 </div>
-<div id="weekly-assignments" class="section level2">
-<h2>Weekly Assignments</h2>
-<p><a href="Weekly_Assignment_1.html">Weekly Assignment 1</a></p>
 </div>
 </section>
 
