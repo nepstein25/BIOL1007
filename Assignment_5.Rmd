@@ -1,0 +1,60 @@
+---
+title: "Assignment 5"
+author: "Neel Epstein"
+date: "2023-01-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 2
+
+```{r}
+my_matrix <- matrix(runif(16), nrow = 4)
+my_matrix
+
+my_logical <- runif(100) > 0.5
+my_logical
+
+my_letters <- sample(letters[1:26])
+my_letters
+
+my_list <- list(my_matrix, my_logical, my_letters)
+my_list
+
+my_list_new <- list(my_matrix[2,2], my_logical[2], my_letters[2])
+my_list_new
+
+typeof(str(my_list_new))
+
+my_new_list_vector <- c(my_matrix[2,2], my_logical[2], my_letters[2])
+my_new_list_vector
+
+typeof(my_new_list_vector)
+```
+
+## Question 3
+```{r}
+Mat <- matrix(ncol = 2, nrow = 26)
+dFrame <- as.data.frame(Mat)
+my_unifs <- runif(26, 0, 10)
+my_letters <- sample(LETTERS)
+dFrame <- data.frame(my_unifs, my_letters)
+dFrame
+
+dFrame$my_unifs[sample(1:26, 4)] <- NA
+
+is.na(dFrame$my_unifs)
+
+ordered_dFrame <- dFrame[order(dFrame$my_letters),]
+ordered_dFrame
+
+mean(ordered_dFrame$my_unifs, na.rm = TRUE)
+
+colnames(ordered_dFrame) <- c("my_unifs","my_LETTERS")
+ordered_dFrame
+```
+
+

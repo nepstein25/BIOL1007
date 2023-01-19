@@ -1,0 +1,38 @@
+---
+title: "Assignment 4"
+author: "Neel Epstein"
+date: "2023-01-17"
+output:  
+  prettydoc::html_pretty:
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+```{r}
+n_dims <- sample(3:10, size = 1)
+n_dims
+
+my_vector <- (1:n_dims^2)
+
+my_vector <- sample(my_vector)
+
+my_matrix <- matrix(data = my_vector, ncol = n_dims, byrow = TRUE)
+my_matrix
+
+t(my_matrix) # transposes matrix
+# The columns become the rows
+
+sum(my_matrix[1,])
+mean(my_matrix[1,])
+
+sum(my_matrix[n_dims,])
+mean(my_matrix[n_dims,])
+
+# n_dims is random and all code is set up to run n_dims randomly
+
+```
+
