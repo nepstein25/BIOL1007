@@ -2,7 +2,7 @@
 title: "Assignment 5"
 author: "Neel Epstein"
 date: "2023-01-19"
-output:
+output:  
   prettydoc::html_pretty:
     theme: lumen
 ---
@@ -55,7 +55,7 @@ ordered_dFrame
 
 mean(ordered_dFrame$my_unifs, na.rm = TRUE)
 
-colnames(ordered_dFrame[2]) <- c("my_LETTERS")
+colnames(ordered_dFrame) <- c("my_unifs","my_LETTERS")
 ordered_dFrame
 ```
 

@@ -151,68 +151,68 @@ pointer-events: auto;
 <h2>Question 2</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">16</span>), <span class="at">nrow =</span> <span class="dv">4</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>my_matrix</span></code></pre></div>
-<pre><code>##           [,1]      [,2]       [,3]       [,4]
-## [1,] 0.6853005 0.9715632 0.96163987 0.04383109
-## [2,] 0.2671668 0.4529175 0.66968853 0.36103287
-## [3,] 0.6479437 0.1298699 0.08708355 0.08332650
-## [4,] 0.5700070 0.9749047 0.29052731 0.47855976</code></pre>
+<pre><code>##           [,1]       [,2]      [,3]      [,4]
+## [1,] 0.8847560 0.01711559 0.5537553 0.5476049
+## [2,] 0.8497939 0.84306829 0.7171586 0.9494442
+## [3,] 0.7927961 0.22768755 0.7956905 0.7526379
+## [4,] 0.4493177 0.82780366 0.9677495 0.8533728</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_logical <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>) <span class="sc">&gt;</span> <span class="fl">0.5</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>my_logical</span></code></pre></div>
-<pre><code>##   [1] FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
-##  [13] FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
-##  [25] FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE
-##  [37]  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE
-##  [49]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
-##  [61] FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE
-##  [73]  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE
-##  [85] FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
-##  [97]  TRUE FALSE  TRUE FALSE</code></pre>
+<pre><code>##   [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE
+##  [13]  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [25]  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE
+##  [37]  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [49]  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+##  [61]  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+##  [73]  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE
+##  [85] FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE
+##  [97] FALSE  TRUE FALSE FALSE</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_letters <span class="ot">&lt;-</span> <span class="fu">sample</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">26</span>])</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>my_letters</span></code></pre></div>
-<pre><code>##  [1] &quot;y&quot; &quot;i&quot; &quot;v&quot; &quot;b&quot; &quot;t&quot; &quot;a&quot; &quot;h&quot; &quot;q&quot; &quot;m&quot; &quot;n&quot; &quot;r&quot; &quot;x&quot; &quot;c&quot; &quot;o&quot; &quot;d&quot; &quot;k&quot; &quot;p&quot; &quot;l&quot; &quot;f&quot;
-## [20] &quot;g&quot; &quot;e&quot; &quot;u&quot; &quot;z&quot; &quot;w&quot; &quot;j&quot; &quot;s&quot;</code></pre>
+<pre><code>##  [1] &quot;o&quot; &quot;x&quot; &quot;j&quot; &quot;n&quot; &quot;m&quot; &quot;i&quot; &quot;h&quot; &quot;q&quot; &quot;c&quot; &quot;a&quot; &quot;z&quot; &quot;f&quot; &quot;g&quot; &quot;v&quot; &quot;w&quot; &quot;b&quot; &quot;p&quot; &quot;k&quot; &quot;t&quot;
+## [20] &quot;y&quot; &quot;e&quot; &quot;d&quot; &quot;u&quot; &quot;r&quot; &quot;s&quot; &quot;l&quot;</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(my_matrix, my_logical, my_letters)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>my_list</span></code></pre></div>
 <pre><code>## [[1]]
-##           [,1]      [,2]       [,3]       [,4]
-## [1,] 0.6853005 0.9715632 0.96163987 0.04383109
-## [2,] 0.2671668 0.4529175 0.66968853 0.36103287
-## [3,] 0.6479437 0.1298699 0.08708355 0.08332650
-## [4,] 0.5700070 0.9749047 0.29052731 0.47855976
+##           [,1]       [,2]      [,3]      [,4]
+## [1,] 0.8847560 0.01711559 0.5537553 0.5476049
+## [2,] 0.8497939 0.84306829 0.7171586 0.9494442
+## [3,] 0.7927961 0.22768755 0.7956905 0.7526379
+## [4,] 0.4493177 0.82780366 0.9677495 0.8533728
 ## 
 ## [[2]]
-##   [1] FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
-##  [13] FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
-##  [25] FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE
-##  [37]  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE
-##  [49]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
-##  [61] FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE
-##  [73]  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE
-##  [85] FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
-##  [97]  TRUE FALSE  TRUE FALSE
+##   [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE
+##  [13]  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [25]  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE
+##  [37]  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [49]  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+##  [61]  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+##  [73]  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE
+##  [85] FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE
+##  [97] FALSE  TRUE FALSE FALSE
 ## 
 ## [[3]]
-##  [1] &quot;y&quot; &quot;i&quot; &quot;v&quot; &quot;b&quot; &quot;t&quot; &quot;a&quot; &quot;h&quot; &quot;q&quot; &quot;m&quot; &quot;n&quot; &quot;r&quot; &quot;x&quot; &quot;c&quot; &quot;o&quot; &quot;d&quot; &quot;k&quot; &quot;p&quot; &quot;l&quot; &quot;f&quot;
-## [20] &quot;g&quot; &quot;e&quot; &quot;u&quot; &quot;z&quot; &quot;w&quot; &quot;j&quot; &quot;s&quot;</code></pre>
+##  [1] &quot;o&quot; &quot;x&quot; &quot;j&quot; &quot;n&quot; &quot;m&quot; &quot;i&quot; &quot;h&quot; &quot;q&quot; &quot;c&quot; &quot;a&quot; &quot;z&quot; &quot;f&quot; &quot;g&quot; &quot;v&quot; &quot;w&quot; &quot;b&quot; &quot;p&quot; &quot;k&quot; &quot;t&quot;
+## [20] &quot;y&quot; &quot;e&quot; &quot;d&quot; &quot;u&quot; &quot;r&quot; &quot;s&quot; &quot;l&quot;</code></pre>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>my_list_new <span class="ot">&lt;-</span> <span class="fu">list</span>(my_matrix[<span class="dv">2</span>,<span class="dv">2</span>], my_logical[<span class="dv">2</span>], my_letters[<span class="dv">2</span>])</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>my_list_new</span></code></pre></div>
 <pre><code>## [[1]]
-## [1] 0.4529175
+## [1] 0.8430683
 ## 
 ## [[2]]
-## [1] TRUE
+## [1] FALSE
 ## 
 ## [[3]]
-## [1] &quot;i&quot;</code></pre>
+## [1] &quot;x&quot;</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">str</span>(my_list_new))</span></code></pre></div>
 <pre><code>## List of 3
-##  $ : num 0.453
-##  $ : logi TRUE
-##  $ : chr &quot;i&quot;</code></pre>
+##  $ : num 0.843
+##  $ : logi FALSE
+##  $ : chr &quot;x&quot;</code></pre>
 <pre><code>## [1] &quot;NULL&quot;</code></pre>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>my_new_list_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(my_matrix[<span class="dv">2</span>,<span class="dv">2</span>], my_logical[<span class="dv">2</span>], my_letters[<span class="dv">2</span>])</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>my_new_list_vector</span></code></pre></div>
-<pre><code>## [1] &quot;0.452917530201375&quot; &quot;TRUE&quot;              &quot;i&quot;</code></pre>
+<pre><code>## [1] &quot;0.843068286078051&quot; &quot;FALSE&quot;             &quot;x&quot;</code></pre>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_new_list_vector)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 </div>
@@ -224,99 +224,99 @@ pointer-events: auto;
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>my_letters <span class="ot">&lt;-</span> <span class="fu">sample</span>(LETTERS)</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>dFrame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(my_unifs, my_letters)</span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>dFrame</span></code></pre></div>
-<pre><code>##     my_unifs my_letters
-## 1  2.7468503          W
-## 2  3.3366480          Z
-## 3  0.5417310          G
-## 4  5.1217714          E
-## 5  5.6958262          V
-## 6  4.5555679          Y
-## 7  5.5845151          S
-## 8  3.8227917          A
-## 9  9.5306470          R
-## 10 8.9635486          Q
-## 11 2.5246298          T
-## 12 7.7557077          F
-## 13 6.8486000          H
-## 14 2.2107621          M
-## 15 5.7261319          N
-## 16 9.4573969          C
-## 17 0.5583154          U
-## 18 0.6122119          L
-## 19 7.3121297          P
-## 20 9.7488961          D
-## 21 6.9109556          K
-## 22 9.2269062          B
-## 23 7.4310215          I
-## 24 0.2917161          O
-## 25 4.6322300          J
-## 26 5.6079318          X</code></pre>
+<pre><code>##    my_unifs my_letters
+## 1  3.369197          O
+## 2  7.290679          M
+## 3  4.049446          D
+## 4  1.126309          F
+## 5  5.259801          G
+## 6  4.191957          K
+## 7  8.854227          Z
+## 8  2.830689          E
+## 9  1.963074          R
+## 10 7.905905          H
+## 11 8.981589          U
+## 12 3.041338          N
+## 13 6.636852          Y
+## 14 2.293354          V
+## 15 5.772120          A
+## 16 1.713221          I
+## 17 9.392347          P
+## 18 9.815115          T
+## 19 6.820408          W
+## 20 4.203260          Q
+## 21 4.944873          B
+## 22 2.201553          L
+## 23 3.408022          X
+## 24 1.966487          S
+## 25 0.215056          C
+## 26 8.346326          J</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>dFrame<span class="sc">$</span>my_unifs[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">26</span>, <span class="dv">4</span>)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(dFrame<span class="sc">$</span>my_unifs)</span></code></pre></div>
-<pre><code>##  [1] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE
-## [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+<pre><code>##  [1]  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [13]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [25] FALSE FALSE</code></pre>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ordered_dFrame <span class="ot">&lt;-</span> dFrame[<span class="fu">order</span>(dFrame<span class="sc">$</span>my_letters),]</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>ordered_dFrame</span></code></pre></div>
-<pre><code>##     my_unifs my_letters
-## 8  3.8227917          A
-## 22 9.2269062          B
-## 16 9.4573969          C
-## 20 9.7488961          D
-## 4  5.1217714          E
-## 12 7.7557077          F
-## 3         NA          G
-## 13 6.8486000          H
-## 23 7.4310215          I
-## 25 4.6322300          J
-## 21 6.9109556          K
-## 18 0.6122119          L
-## 14 2.2107621          M
-## 15 5.7261319          N
-## 24 0.2917161          O
-## 19 7.3121297          P
-## 10        NA          Q
-## 9  9.5306470          R
-## 7         NA          S
-## 11        NA          T
-## 17 0.5583154          U
-## 5  5.6958262          V
-## 1  2.7468503          W
-## 26 5.6079318          X
-## 6  4.5555679          Y
-## 2  3.3366480          Z</code></pre>
+<pre><code>##    my_unifs my_letters
+## 15 5.772120          A
+## 21 4.944873          B
+## 25 0.215056          C
+## 3  4.049446          D
+## 8  2.830689          E
+## 4        NA          F
+## 5  5.259801          G
+## 10 7.905905          H
+## 16 1.713221          I
+## 26 8.346326          J
+## 6  4.191957          K
+## 22 2.201553          L
+## 2        NA          M
+## 12 3.041338          N
+## 1        NA          O
+## 17 9.392347          P
+## 20 4.203260          Q
+## 9  1.963074          R
+## 24 1.966487          S
+## 18 9.815115          T
+## 11 8.981589          U
+## 14 2.293354          V
+## 19 6.820408          W
+## 23 3.408022          X
+## 13       NA          Y
+## 7  8.854227          Z</code></pre>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ordered_dFrame<span class="sc">$</span>my_unifs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## [1] 5.415501</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ordered_dFrame[<span class="dv">2</span>]) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;my_LETTERS&quot;</span>)</span>
+<pre><code>## [1] 4.916826</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ordered_dFrame) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;my_unifs&quot;</span>,<span class="st">&quot;my_LETTERS&quot;</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>ordered_dFrame</span></code></pre></div>
-<pre><code>##     my_unifs my_letters
-## 8  3.8227917          A
-## 22 9.2269062          B
-## 16 9.4573969          C
-## 20 9.7488961          D
-## 4  5.1217714          E
-## 12 7.7557077          F
-## 3         NA          G
-## 13 6.8486000          H
-## 23 7.4310215          I
-## 25 4.6322300          J
-## 21 6.9109556          K
-## 18 0.6122119          L
-## 14 2.2107621          M
-## 15 5.7261319          N
-## 24 0.2917161          O
-## 19 7.3121297          P
-## 10        NA          Q
-## 9  9.5306470          R
-## 7         NA          S
-## 11        NA          T
-## 17 0.5583154          U
-## 5  5.6958262          V
-## 1  2.7468503          W
-## 26 5.6079318          X
-## 6  4.5555679          Y
-## 2  3.3366480          Z</code></pre>
+<pre><code>##    my_unifs my_LETTERS
+## 15 5.772120          A
+## 21 4.944873          B
+## 25 0.215056          C
+## 3  4.049446          D
+## 8  2.830689          E
+## 4        NA          F
+## 5  5.259801          G
+## 10 7.905905          H
+## 16 1.713221          I
+## 26 8.346326          J
+## 6  4.191957          K
+## 22 2.201553          L
+## 2        NA          M
+## 12 3.041338          N
+## 1        NA          O
+## 17 9.392347          P
+## 20 4.203260          Q
+## 9  1.963074          R
+## 24 1.966487          S
+## 18 9.815115          T
+## 11 8.981589          U
+## 14 2.293354          V
+## 19 6.820408          W
+## 23 3.408022          X
+## 13       NA          Y
+## 7  8.854227          Z</code></pre>
 </div>
 </section>
 
