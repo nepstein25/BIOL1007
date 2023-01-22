@@ -1,0 +1,41 @@
+---
+title: "Weekly Assignment 2"
+author: "Neel Epstein"
+date: "2023-01-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1  
+```{r}
+new_function <- function(){
+  data.frame(Type = c(rep("Control", 25),
+                      rep("Treatment", 25)), 
+            Value = c(rnorm(25, 10, 1.5),
+                      rnorm(25, 45, 2)))
+}
+```
+
+## Question 2  
+```{r}
+new_function_output <- new_function()
+head(new_function_output)
+```
+## Question 3  
+```{r}
+anova <- aov(data = new_function_output, Value ~ Type)
+summary(anova)
+```
+## Question 4  
+```{r message=FALSE}
+library(tidyverse)
+p_value <- function(df){
+  anova <- aov(data = df, pull(select(df, 2)) ~ pull(select(df, 1)))
+  summary(anova)[[1]][["Pr(>F)"]][1]
+}
+p_value(new_function_output)
+```
+

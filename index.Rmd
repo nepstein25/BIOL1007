@@ -6,6 +6,9 @@ output:
   prettydoc::html_pretty:
     theme: lumen
 ---
+![](Proctor.jpeg)
+
+Welcome to my web page for the Reproducible Biology in R course during J-Term 2023. I am a Molecular Biology and Biochemistry Major at Middlebury College. This is where I will post all of my assignments throughout the course.
 
 ## Daily Assignments
 [Assignment 1](Assignment_1.html)  
@@ -16,4 +19,5 @@ output:
 
 ## Weekly Assignments
 [Weekly Assignment 1](Weekly_Assignment_1.html)
+[Weekly Assignment 2](Weekly_Assignment_2.html)
 
