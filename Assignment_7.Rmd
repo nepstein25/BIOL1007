@@ -1,0 +1,76 @@
+---
+title: "Assignment 7"
+author: "Neel Epstein"
+date: "2023-01-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+```{r}
+library(tidyverse)
+starwars <- starwars
+species_count <- starwars %>%
+  group_by(species) %>%
+  summarize(Total_Number = n()) %>%
+  filter(Total_Number > 1)
+species_count
+```
+
+```{r}
+glimpse(starwars)
+new_starwars <- starwars %>%
+  filter(species %in% species_count$species) %>%
+  select(1:11)
+glimpse(new_starwars)
+```
+
+## Question 2  
+```{r}
+clean_starwars <- new_starwars %>%
+  filter(height != is.na(height))  %>%
+  filter(species != is.na(species))
+clean_starwars
+
+anyNA(clean_starwars[,2])
+
+summary_starwars <- clean_starwars %>%
+  group_by(species) %>%
+  summarize(mean_height = mean(height), median_height = median(height), stdev_height = sd(height))
+summary_starwars
+```
+
+## Question 3  
+```{r}
+plot1 <- clean_starwars %>%
+  ggplot(aes(x = species, y = height, fill = species)) +
+  geom_boxplot() +
+  theme_minimal() +
+  labs(x = "Species", y = "Height (cm)") +
+  geom_text(data = NULL, x = 8, y = 235, label = "p=1.2E-0.5") +
+  geom_jitter(aes(color = sex))
+plot1
+```
+
+## Question 4  
+```{r}
+library(viridis)
+cols <- viridis(8, option = "turbo")
+plot2 <- clean_starwars %>%
+  ggplot(aes(x = mass, y = height, col = species)) + 
+  geom_point() + 
+  labs(x = "Mass (kg)", y = "Height (cm)") +
+  theme_minimal() +
+  scale_color_manual(values = cols)
+plot2
+```
+
+## Question 5
+```{r}
+library(patchwork)
+plot1 / plot_spacer() + plot2
+```
+
