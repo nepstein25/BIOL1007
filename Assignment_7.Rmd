@@ -50,10 +50,16 @@ summary_starwars
 plot1 <- clean_starwars %>%
   ggplot(aes(x = species, y = height, fill = species)) +
   geom_boxplot() +
+  scale_fill_brewer(palette="Dark2") +
   theme_minimal() +
   labs(x = "Species", y = "Height (cm)") +
   geom_text(data = NULL, x = 8, y = 235, label = "p=1.2E-0.5") +
-  geom_jitter(aes(color = sex))
+  geom_jitter(aes(color = sex)) +
+  theme(legend.key.size = unit(0.7, 'cm'), 
+        legend.key.height = unit(0.35, 'cm'), 
+        legend.key.width = unit(0.8, 'cm'),
+        legend.title = element_text(size=8),
+        legend.text = element_text(size=8))
 plot1
 ```
 
@@ -66,13 +72,18 @@ plot2 <- clean_starwars %>%
   geom_point() + 
   labs(x = "Mass (kg)", y = "Height (cm)") +
   theme_minimal() +
-  scale_color_manual(values = cols)
+  scale_color_manual(values = cols) +
+  theme(legend.key.size = unit(.3, 'cm'), 
+        legend.key.height = unit(.3, 'cm'), 
+        legend.key.width = unit(.3, 'cm'),
+        legend.title = element_text(size=8),
+        legend.text = element_text(size=8))
 plot2
 ```
 
 ## Question 5
 ```{r}
 library(patchwork)
-plot1 / plot_spacer() + plot2
+plot1 / plot2
 ```
 
