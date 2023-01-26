@@ -2,7 +2,9 @@
 title: "Weekly Assignment 2"
 author: "Neel Epstein"
 date: "2023-01-19"
-output: html_document
+output:
+  prettydoc::html_pretty:
+    theme: lumen
 ---
 
 ```{r setup, include=FALSE}
@@ -24,11 +26,13 @@ new_function <- function(){
 new_function_output <- new_function()
 head(new_function_output)
 ```
+
 ## Question 3  
 ```{r}
 anova <- aov(data = new_function_output, Value ~ Type)
 summary(anova)
 ```
+
 ## Question 4  
 ```{r message=FALSE}
 library(tidyverse)
@@ -38,4 +42,3 @@ p_value <- function(df){
 }
 p_value(new_function_output)
 ```
-

@@ -1,0 +1,75 @@
+---
+title: "Assignment 8"
+author: "Neel Epstein"
+date: "2023-01-26"
+output:
+  prettydoc::html_pretty:
+    theme: lumen
+---
+
+## Code Reflection
+[Assignment 6 Revised](Assignment_6_New.html)  
+[Weekly Assignment 2 Revised](Weekly_Assignment_2_New.html)  
+
+## Code Annotation
+```{r}
+## Set up libraries
+library(tidyverse)
+library(ggthemes)
+
+
+# Data obtained from Veysey Powell and Babbitt 2016: An experimental test of buffer utility as a technique for managing pool-breeding amphibians https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.547rp
+
+dryadData <- read.table("Data/veysey-babbitt_data_amphibians.csv", header=TRUE, sep=",", stringsAsFactors = TRUE) # read data set into RStudio
+
+# glimpse(dryadData) # Shows preview of data set including number of rows and columns
+# head(dryadData) # Shows first 6 rows of data set
+# table(dryadData$species) # Shows the total number of Spotted Salamanders and Wood Frogs
+
+dryadData$species<-factor(dryadData$species, labels=c("Spotted Salamander", "Wood Frog")) #creating 'labels' to use for the plot # It changes to data type from character into factor with 2 levels: "Spotted Salamander" and "Wood Frog"
+
+#class(dryadData$treatment) # Shows data type of the "treatment" column
+dryadData$treatment <- factor(dryadData$treatment, 
+            levels=c("Reference",
+                     "100m", "30m")) # Changes the data type from character into factor with 3 levels: "Reference", "100m", and "30m" # Allows these to be labels on the x-axis
+
+p<- ggplot(data=dryadData, 
+       aes(x=interaction(wetland, treatment), 
+           y=count.total.adults, fill=factor(year))) +
+  # The x-axis is determined by the interaction of two variables, "wetland" and "treatment", and the y-axis is determined by the "count.total.adults" variable
+  geom_bar(position="dodge", stat="identity", color="black") +
+  # The geom_bar function makes a bar graph
+  ## The position parameter is set to "dodge", which means the bars for each x-value are separated from one another
+  ## The stat parameter is set to "identity", which the data value in the data set will be used to determine the size of the bar
+  ## The color parameter is set to "black" which means that the bars will be plotted in black
+  ylab("Number of breeding adults") + # Creates this label on the y-axis
+  xlab("") + # Makes it so there is no x-axis label
+  scale_y_continuous(breaks = c(0,100,200,300,400,500)) +
+  # The scale function determines how the y-axis will be spaced out, including at what positions the tick marks will appear
+  ## In this case, the data for this variable is continuous and is graphed accordingly
+  scale_x_discrete(labels=c("30 (Ref)", "124 (Ref)", "141 (Ref)", "25 (100m)","39 (100m)","55 (100m)","129 (100m)", "7 (30m)","19 (30m)","20 (30m)","59 (30m)")) +
+  # The scale function determines how the x-axis will be spaced out, including the label names and where they will appear
+  ## In this case, the data for this variable is dicrete and is graphed accordingly
+  facet_wrap(~species, nrow=2, strip.position="right") +
+  # The facet_wrap function creates multiple plots group by the variable after the "~" inside the parenthesis
+  ## In this case, the graph is facet wrapped by species type: "Spotted Salamander" and "Wood Frog"
+  ## The nrow parameter creates 2 rows for the 2 graphs
+  ## The strip position parameter determines where the species label for each graph is placed
+  ### In this case, it is specified to be on the right of the graph
+  theme_few() + # theme_few sets the theme of the plot ## This particular theme looks very professional
+  scale_fill_grey() + # scale_fill_grey makes the whole plot grayscale
+  theme(panel.background = element_rect(fill = 'gray94', # changes the panel background fill color to gray
+                                        color = 'black'), # changes the border of the plots to black
+        legend.position="top", # places the legend on the top of the plot
+        legend.title= element_blank(), # removes the legend title
+        axis.title.y = element_text(size=12, # changes font size of y-axis label
+                                    face="bold", # bolds y-axis label
+                                    colour = "black"), # changes the color of the y-axis label
+        strip.text.y = element_text(size = 10, # changes font size of the plot labels on the right side
+                                    face="bold", # bolds the plot labels on the right side
+                                    colour = "black")) + # changes font size of the plot labels on the right side
+  guides(fill = guide_legend(nrow=1,byrow=TRUE)) # makes the legend appear as a single row on the top of the plot
+
+p # prints the plot
+```
+

@@ -1,0 +1,51 @@
+---
+title: "Weekly Assignment 2 Revised"
+author: "Neel Epstein"
+date: "2023-01-26"
+output:
+  prettydoc::html_pretty:
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1  
+```{r}
+set.seed(123) # add set seed to have same random numbers created each time and improve reproducibility
+new_function <- function(){ # You can specify mean1, mean2, etc. in the parathesis here or in the data.frame function below
+  df <- data.frame(Type = c(rep("Control", 25),
+                      rep("Treatment", 25)), 
+            Value = c(rnorm(25, 10, 1.5),
+                      rnorm(25, 45, 2)))
+  return(df) #need to remember to put a return for each function
+}
+```
+
+## Question 2  
+```{r}
+new_function_output <- new_function()
+head(new_function_output)
+```
+
+## Question 3  
+```{r}
+anova <- aov(data = new_function_output, Value ~ Type)
+summary(anova)
+```
+
+## Question 4  
+```{r message=FALSE}
+library(tidyverse)
+p_value <- function(df = NULL){ # add df = NULL in parenthesis
+  anova <- aov(data = df, pull(select(df, 2)) ~ pull(select(df, 1)))
+  # use df[,2] ~ df[,1] instead of pull(select(df, 2)) ~ pull(select(df, 1)) since it is more efficient
+  pVal <- summary(anova)[[1]][["Pr(>F)"]][1]
+  return(pVal) # need to remember to put a return for each function
+}
+p_value(new_function_output)
+
+p_value(new_function()) ## I can put my simulate data function ("new_function()") in my p-value function
+```
+

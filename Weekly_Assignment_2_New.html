@@ -12,9 +12,9 @@
 
 <meta name="author" content="Neel Epstein" />
 
-<meta name="date" content="2023-01-19" />
+<meta name="date" content="2023-01-26" />
 
-<title>Weekly Assignment 2</title>
+<title>Weekly Assignment 2 Revised</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -139,9 +139,10 @@ pointer-events: auto;
 
 
 <section class="page-header">
-<h1 class="title toc-ignore project-name">Weekly Assignment 2</h1>
+<h1 class="title toc-ignore project-name">Weekly Assignment 2
+Revised</h1>
 <h4 class="author project-author">Neel Epstein</h4>
-<h4 class="date project-date">2023-01-19</h4>
+<h4 class="date project-date">2023-01-26</h4>
 </section>
 
 
@@ -149,44 +150,50 @@ pointer-events: auto;
 <section class="main-content">
 <div id="question-1" class="section level2">
 <h2>Question 1</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>new_function <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Type =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;Control&quot;</span>, <span class="dv">25</span>),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">rep</span>(<span class="st">&quot;Treatment&quot;</span>, <span class="dv">25</span>)), </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">Value =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="dv">10</span>, <span class="fl">1.5</span>),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="dv">45</span>, <span class="dv">2</span>)))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># add set seed to have same random numbers created each time and improve reproducibility</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>new_function <span class="ot">&lt;-</span> <span class="cf">function</span>(){ <span class="co"># You can specify mean1, mean2, etc. in the parathesis here or in the data.frame function below</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Type =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;Control&quot;</span>, <span class="dv">25</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">rep</span>(<span class="st">&quot;Treatment&quot;</span>, <span class="dv">25</span>)), </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">Value =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="dv">10</span>, <span class="fl">1.5</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="dv">45</span>, <span class="dv">2</span>)))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df) <span class="co">#need to remember to put a return for each function</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="question-2" class="section level2">
 <h2>Question 2</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>new_function_output <span class="ot">&lt;-</span> <span class="fu">new_function</span>()</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(new_function_output)</span></code></pre></div>
 <pre><code>##      Type     Value
-## 1 Control  8.118698
-## 2 Control 10.433060
-## 3 Control  9.173645
-## 4 Control 10.523209
-## 5 Control  9.964120
-## 6 Control  7.099698</code></pre>
+## 1 Control  9.159287
+## 2 Control  9.654734
+## 3 Control 12.338062
+## 4 Control 10.105763
+## 5 Control 10.193932
+## 6 Control 12.572597</code></pre>
 </div>
 <div id="question-3" class="section level2">
 <h2>Question 3</h2>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> new_function_output, Value <span class="sc">~</span> Type)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova)</span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
-## Type         1  15865   15865    6189 &lt;2e-16 ***
-## Residuals   48    123       3                   
+## Type         1  15536   15536    5760 &lt;2e-16 ***
+## Residuals   48    129       3                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
 <div id="question-4" class="section level2">
 <h2>Question 4</h2>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">df =</span> <span class="cn">NULL</span>){ <span class="co"># add df = NULL in parenthesis</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> df, <span class="fu">pull</span>(<span class="fu">select</span>(df, <span class="dv">2</span>)) <span class="sc">~</span> <span class="fu">pull</span>(<span class="fu">select</span>(df, <span class="dv">1</span>)))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(anova)[[<span class="dv">1</span>]][[<span class="st">&quot;Pr(&gt;F)&quot;</span>]][<span class="dv">1</span>]</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">p_value</span>(new_function_output)</span></code></pre></div>
-<pre><code>## [1] 2.144274e-52</code></pre>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use df[,2] ~ df[,1] instead of pull(select(df, 2)) ~ pull(select(df, 1)) since it is more efficient</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  pVal <span class="ot">&lt;-</span> <span class="fu">summary</span>(anova)[[<span class="dv">1</span>]][[<span class="st">&quot;Pr(&gt;F)&quot;</span>]][<span class="dv">1</span>]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pVal) <span class="co"># need to remember to put a return for each function</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">p_value</span>(new_function_output)</span></code></pre></div>
+<pre><code>## [1] 1.183614e-51</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">p_value</span>(<span class="fu">new_function</span>()) <span class="do">## I can put my simulate data function (&quot;new_function()&quot;) in my p-value function</span></span></code></pre></div>
+<pre><code>## [1] 7.541268e-53</code></pre>
 </div>
 </section>
 

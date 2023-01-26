@@ -1,0 +1,12 @@
+---
+title: "Weekly Assignment 3"
+author: "Neel Epstein"
+date: "2023-01-26"
+output:
+  prettydoc::html_pretty:
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
