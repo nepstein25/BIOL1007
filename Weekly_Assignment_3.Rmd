@@ -48,13 +48,13 @@ plotA <- Rock2.5 %>%
   ggplot(aes(x = t, y = value, shape = type, color = type)) +
   geom_point() +
   theme_bw() +
-  theme(panel.grid.minor = element_blank(),
-        plot.title = element_text(hjust = 0.5, vjust = 2)) +
   labs(y = "Concentration (#/cm^3)",
        x = "Time hh:mm",
        title = "< 2.5 μm (Rocklea Station)") +
   scale_y_continuous(breaks = c(5, 7.5, 10, 15), limits = c(2.5, 20)) +
-  theme(legend.title= element_blank())
+  theme(plot.title = element_text(size = 12, hjust = 0.5, vjust = 2)) +
+  theme(legend.title= element_blank(),
+        axis.title.y = element_text(size=9))
 ```
 
 ```{r}
@@ -62,13 +62,13 @@ plotB <- Rock10 %>%
   ggplot(aes(x = t, y = value, shape = type, color = type)) +
   geom_point() +
   theme_bw() +
-  theme(panel.grid.minor = element_blank(),
-        plot.title = element_text(hjust = 0.5, vjust = 2)) +
   labs(y = "Concentration (#/cm^3)",
        x = "Time hh:mm",
        title = "< 10 μm (Rocklea Station)") +
   scale_y_continuous(breaks = c(7.5, 10, 15), limits = c(7, 20)) +
-  theme(legend.title= element_blank())
+  theme(plot.title = element_text(size = 12, hjust = 0.5, vjust = 2)) +
+  theme(legend.title= element_blank(),
+        axis.title.y = element_text(size=9))
 ```
 
 ```{r}
@@ -76,13 +76,13 @@ plotC <- Wool2.5 %>%
   ggplot(aes(x = t, y = value, shape = type, color = type)) +
   geom_point() +
   theme_bw() +
-  theme(panel.grid.minor = element_blank(),
-        plot.title = element_text(hjust = 0.5, vjust = 2)) +
   labs(y = "Concentration (#/cm^3)",
        x = "Time hh:mm",
        title = "< 2.5 μm (Woolloongabba Station)") +
   scale_y_continuous(breaks = c(5, 10, 15, 20, 25), limits = c(1, 29)) +
-  theme(legend.title= element_blank())
+  theme(plot.title = element_text(size = 12, hjust = 0.5, vjust = 2)) +
+  theme(legend.title= element_blank(),
+        axis.title.y = element_text(size=9))
 ```
 
 ```{r}
@@ -90,17 +90,34 @@ plotD <- Wool10 %>%
   ggplot(aes(x = t, y = value, shape = type, color = type)) +
   geom_point() +
   theme_bw() +
-  theme(panel.grid.minor = element_blank(),
-        plot.title = element_text(hjust = 0.5, vjust = 2)) +
   labs(y = "Concentration (#/cm^3)",
        x = "Time hh:mm",
        title = "< 10 μm (Woolloongabba Station)") +
   scale_y_continuous(breaks = c(5, 10, 15, 20, 25), limits = c(5, 30)) +
-  theme(legend.title= element_blank())
+  theme(plot.title = element_text(size = 12, hjust = 0.5, vjust = 2)) +
+  theme(legend.title= element_blank(),
+        axis.title.y = element_text(size=9))
 ```
 
 ```{r}
-library(patchwork)
-(plotA + plotB) / (plotC + plotD)
+library(ggpubr)
+ggarrange(
+  plotA, plotB, plotC, plotD,
+  plotlist = NULL,
+  ncol = 2,
+  nrow = 2,
+  labels = letters[1:4],
+  label.x = 0,
+  label.y = 1,
+  hjust = -0.5,
+  vjust = 1.5,
+  font.label = list(size = 14, color = "black", face = "bold", family = NULL),
+  align = c("none", "h", "v", "hv"),
+  widths = 1,
+  heights = 1,
+  legend = NULL,
+  common.legend = FALSE,
+  legend.grob = NULL
+)
 ```
 
