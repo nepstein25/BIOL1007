@@ -10,3 +10,97 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+Mobile phones as monitors of personal exposure to air pollution: Is this the future?  
+PLOS ONE: 2018  
+https://doi.org/10.1371/journal.pone.0193150  
+https://datadryad.org/stash/dataset/doi:10.5061/dryad.2b879  
+Figure 4  
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+rock2.5 <- read.csv("Data/Rocklea station 2.5um.csv")
+rock10 <- read.csv("Data/Rocklea station 10um.csv")
+wool2.5 <- read.csv("Data/Woolloongabba station 2.5.csv")
+wool10 <- read.csv("Data/Woolloongabba station 10um.csv")
+```
+
+```{r}
+Rock2.5 <- rock2.5 %>%
+  pivot_longer(2:4, names_to = "type", values_to = "value")
+Rock2.5$t <- as.POSIXct(Rock2.5$t, format = "%d/%m/%Y %H:%M", "%H:%M", tz = "EST")
+typeof(Rock2.5$t)
+Rock10 <- rock10 %>%
+  pivot_longer(2:4, names_to = "type", values_to = "value")
+Rock10$t <- as.POSIXct(Rock10$t, format = "%d/%m/%Y %H:%M", "%H:%M", tz = "EST")
+Wool2.5 <- wool2.5 %>%
+  pivot_longer(2:4, names_to = "type", values_to = "value")
+Wool2.5$t <- as.POSIXct(Wool2.5$t, format = "%d/%m/%Y %H:%M", "%H:%M", tz = "EST")
+Wool10 <- wool10 %>%
+  pivot_longer(2:4, names_to = "type", values_to = "value")
+Wool10$t <- as.POSIXct(Wool10$t, format = "%d/%m/%Y %H:%M", "%H:%M", tz = "EST")
+
+```
+
+```{r}
+plotA <- Rock2.5 %>%
+  ggplot(aes(x = t, y = value, shape = type, color = type)) +
+  geom_point() +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5, vjust = 2)) +
+  labs(y = "Concentration (#/cm^3)",
+       x = "Time hh:mm",
+       title = "< 2.5 μm (Rocklea Station)") +
+  scale_y_continuous(breaks = c(5, 7.5, 10, 15), limits = c(2.5, 20)) +
+  theme(legend.title= element_blank())
+```
+
+```{r}
+plotB <- Rock10 %>%
+  ggplot(aes(x = t, y = value, shape = type, color = type)) +
+  geom_point() +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5, vjust = 2)) +
+  labs(y = "Concentration (#/cm^3)",
+       x = "Time hh:mm",
+       title = "< 10 μm (Rocklea Station)") +
+  scale_y_continuous(breaks = c(7.5, 10, 15), limits = c(7, 20)) +
+  theme(legend.title= element_blank())
+```
+
+```{r}
+plotC <- Wool2.5 %>%
+  ggplot(aes(x = t, y = value, shape = type, color = type)) +
+  geom_point() +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5, vjust = 2)) +
+  labs(y = "Concentration (#/cm^3)",
+       x = "Time hh:mm",
+       title = "< 2.5 μm (Woolloongabba Station)") +
+  scale_y_continuous(breaks = c(5, 10, 15, 20, 25), limits = c(1, 29)) +
+  theme(legend.title= element_blank())
+```
+
+```{r}
+plotD <- Wool10 %>%
+  ggplot(aes(x = t, y = value, shape = type, color = type)) +
+  geom_point() +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5, vjust = 2)) +
+  labs(y = "Concentration (#/cm^3)",
+       x = "Time hh:mm",
+       title = "< 10 μm (Woolloongabba Station)") +
+  scale_y_continuous(breaks = c(5, 10, 15, 20, 25), limits = c(5, 30)) +
+  theme(legend.title= element_blank())
+```
+
+```{r}
+library(patchwork)
+(plotA + plotB) / (plotC + plotD)
+```
+
