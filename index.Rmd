@@ -19,6 +19,7 @@ Welcome to my web page for the Reproducible Biology in R course during J-Term 20
 [Assignment 6](Assignment_6.html)  
 [Assignment 7](Assignment_7.html)  
 [Assignment 8](Assignment_8.html)  
+[Assignment 9](Assignment_9.html)  
 
 ## Weekly Assignments
 [Weekly Assignment 1](Weekly_Assignment_1.html)  
