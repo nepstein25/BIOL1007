@@ -1,0 +1,44 @@
+---
+title: "Weekly Assignment 4"
+author: "Neel Epstein"
+date: "2023-01-31"
+output:
+  prettydoc::html_pretty:
+    theme: lumen
+---
+
+## Creating Data Frame  
+
+```{r}
+set.seed(123)
+speed_data <- seq(from = 20,
+                  to = 80,
+                  by = 2.5)
+make_data <- sample(c("Mercedes", "Volkswagen", "BMW", "Audi"), size = 25, replace = TRUE, prob = c(1/4, 1/4, 1/4, 1/4))
+car_data <- data.frame(Make = make_data,
+                             Speed = speed_data,
+                             Engine_Noise = speed_data + rnorm(25, mean = 30, sd = 5))
+car_data
+```  
+
+## Regression Analysis  
+
+We are using regression analysis because the dependent variable (Engine Noise) is continuous and the independent variable (Speed) is also continuous.
+```{r}
+regLinearModel <- lm(Speed ~ Engine_Noise, data = car_data)
+summary(regLinearModel)
+```  
+
+## ggplot Visualization  
+
+```{r message = FALSE}
+library(ggplot2)
+ggplot(car_data, aes(x = Speed,
+                           y = Engine_Noise)) +
+  geom_point(size = 2) +
+  stat_smooth(method = "lm", se = 0.99) +
+  labs(x = "Speed (mph)",
+       y = "Engine Noise (db)") +
+  theme_bw()
+```  
+
