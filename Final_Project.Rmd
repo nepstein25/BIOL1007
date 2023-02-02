@@ -74,6 +74,7 @@ my_pal <- colorFactor(palette = c("black", # 85511
                    domain = turtle$Turtle.ID) # The domain argument ensures that the colors are associated with the Turtle.ID column of the data set
 ```
 
+
 ## Change Turtle ID variable to characters
 
 In order to create different layers for each group of points for the turtles, the Turtle ID numbers must be turned into characters. Otherwise R recognizes these data as numbers instead of names for the turtles.
@@ -104,7 +105,7 @@ turtlemap <- turtle %>%
               title = "Turtle ID") %>% # creates legend title
    addLayersControl( # add layers to map
     overlayGroups = turtle$Turtle.ID, # makes each layer a group of points from each turtle
-    options = layersControlOptions(collapsed = TRUE) # collapses the layers panel so that the map is more visually appealling
+    options = layersControlOptions(collapsed = TRUE) # collapses the layers panel so that the map is more visually appealing
   )
-turtlemap # print the map
+turtlemap
 ```
