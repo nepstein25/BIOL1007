@@ -1,0 +1,105 @@
+---
+title: "Final Project"
+author: "Neel Epstein"
+date: "2023-01-31"
+output:
+  prettydoc::html_pretty:
+    theme: lumen
+---
+## Introduction
+In my final project, I decided to look at leaflet package and use it specifically to represent data from a Dryad data set. The paper associated with this data set focused on some of the  long-term movements of oceanic-stage juvenile sea turtles. While many of the data visualizations in the associated paper were very specific turtles movements within a small area, the Leaflet package allowed me to create an interactive map that showed the turtles' paths. I chose to visualize this data with the leaflet package because it is much more accessible to a larger population. Also the interactivity of the map can help captivate audiences beyond marine biology scientists.  
+  
+## Source
+Mansfield, Katherine; Wyneken, Jeanette; Luo, Jiangang (2021), First Atlantic satellite tracks of lost years green turtles support the importance of the Sargasso Sea as a sea turtle nursery, Dryad, Dataset.  
+[Data set](https://doi.org/10.5061/dryad.x95x69ph9)  
+[Journal Article](https://doi.org/10.1098/rspb.2013.3039)  
+
+
+### Load Libraries
+```{r message = FALSE}
+library(tidyverse) #The tidyverse package must first be installed by typing install.packages("tidyverse") in the Console
+library(leaflet) #The leaflet package must first be installed by typing install.packages("leaflet") in the Console
+```
+
+
+### Loading Data Set  
+The data set was first downloaded from Dryad Data and then was placed in the project folder (in subfolder "Data"). Then the data was read in using the read.csv() function.  
+```{r}
+turtle <- read.csv("Data/Loggerhead_tracks_interpolated_Mansfield_et_al_2014.csv")
+```
+
+The table function was used to determine the number of turtles being tracked.  
+```{r}
+table(turtle$Turtle.ID)
+```
+
+11 neonate Atlantic loggerhead turtles were tracked from 2010-2011.
+![](https://i.pinimg.com/originals/8c/26/f3/8c26f3e2b10e6a1e3ee507ebca24bafd.jpg)
+
+## Create Labels  
+When the points are created in the final leaflet map they should be labelled with the Turtle ID number and the date and time at which they were at this location
+
+```{r}
+labs <- paste0("<strong>", "Turtle ID:  ",
+               turtle$Turtle.ID, "<br>",
+               "Date - Time:  ",
+               turtle$GMT)
+```
+
+
+## Create Color Pallete  
+To differentiate between the different turtles, the color of the turtles' path must be different colors. A color palette with 11 different colors (number of turtles) was created and saved as a function called "my_pal". 
+
+Each Turtle ID number corresponds with a different color, and is commented within the code.
+```{r}
+my_pal <- colorFactor(palette = c("black", # 85511
+                               "red", # 85512
+                               "tan", # 85513
+                               "darkorange", # 85514
+                               "yellow", # 92584
+                               "darkblue", # 92585
+                               "darkred", # 92586
+                               "forestgreen", # 92587
+                               "hotpink", # 92588
+                               "lightpink", # 92589
+                               "purple"), # 92590
+                   domain = turtle$Turtle.ID) # The domain argument ensures that the colors are associated with the Turtle.ID column of the data set
+```
+
+
+## Change Turtle ID variable to characters  
+In order to create different layers for each group of points for the turtles, the Turtle ID numbers must be turned into characters. Otherwise R recognizes these data as numbers instead of names for the turtles.  
+
+```{r}
+str(turtle) # To check the data type of each variable
+turtle$Turtle.ID <- as.character(turtle$Turtle.ID) # Changes to the Turtle.ID variable data type to characters from numbers
+str(turtle)
+```
+Goes from type integer to type character.
+
+## Create Leaflet  
+The leaflet was created to be a more accesible way to access the turtle tracking data. It allows the viewer to pick up on trends discussed in the paper like the relationship between turtle path and ocean depth within a user-friendly interactive map. The code to create this leaflet is commented so it can be followed and reproduced.  
+
+```{r message = FALSE}
+turtlemap <- turtle %>%
+    leaflet() %>% # Uses leaflet functions ## like ggplot except pipe operators are used instead of "+" signs to add more elements
+    setView(lng = -55, lat = 35, zoom = 4.2) %>% # Sets the viewing frame for the map. This can be changed by viewer by zooming in and out
+    addProviderTiles(providers$Esri.NatGeoWorldMap) %>% # Adds a special map that shows ocean depth and has names of the various different parts of the Atlantic Ocean ## if I just wanted the default map I would type "addTiles()".
+    addCircleMarkers(radius = 0.75, # size of the circle markers
+                     color = ~my_pal(Turtle.ID), # adds in the color palette
+                     popup = labs, # adds the labels as popups when a point is clicked on
+                     group = turtle$Turtle.ID) %>% # This groups points for each turtle so layers can be created later
+    addLegend(pal = my_pal, # creates a legend that uses the color palette
+              values = ~Turtle.ID, # makes the legend names the Turtle ID numbers
+              title = "Turtle ID") %>% # creates legend title
+   addLayersControl( # add layers to map
+    overlayGroups = turtle$Turtle.ID, # makes each layer a group of points from each turtle
+    options = layersControlOptions(collapsed = TRUE) # collapses the layers panel so that the map is more visually appealling
+  )
+turtlemap # print the map
+```
+
+
+
+
+

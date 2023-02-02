@@ -34,9 +34,9 @@ summary(regLinearModel)
 ```{r message = FALSE}
 library(ggplot2)
 ggplot(car_data, aes(x = Speed,
-                           y = Engine_Noise)) +
+                     y = Engine_Noise)) +
   geom_point(size = 2) +
-  stat_smooth(method = "lm", se = 0.99) +
+  stat_smooth(method = "lm") +
   labs(x = "Speed (mph)",
        y = "Engine Noise (db)") +
   theme_bw()
