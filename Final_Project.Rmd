@@ -9,7 +9,7 @@ output:
 
 ## Introduction
 
-In my final project, I decided to look at leaflet package and use it specifically to represent data from a Dryad data set. The paper associated with this data set focused on some of the long-term movements of oceanic-stage juvenile sea turtles. While many of the data visualizations in the associated paper were very specific turtles movements within a small area, the Leaflet package allowed me to create an interactive map that showed the turtles' paths. I chose to visualize this data with the leaflet package because it is much more accessible to a larger population. Also the interactivity of the map can help captivate audiences beyond marine biology scientists.
+In my final project, I decided to look at the leaflet package and use it specifically to represent data from a Dryad data set. The paper associated with this data set focused on some of the long-term movements of oceanic-stage juvenile sea turtles. While many of the data visualizations in the associated paper were very specific turtles movements within a small area, the Leaflet package allowed me to create an interactive map that showed the turtles' paths. I chose to visualize this data with the leaflet package because it is much more accessible to a larger population. Also the interactivity of the map can help captivate audiences beyond marine biology scientists.
 
 ## Source
 
