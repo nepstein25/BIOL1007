@@ -6,37 +6,44 @@ output:
   prettydoc::html_pretty:
     theme: lumen
 ---
-## Introduction
-In my final project, I decided to look at leaflet package and use it specifically to represent data from a Dryad data set. The paper associated with this data set focused on some of the  long-term movements of oceanic-stage juvenile sea turtles. While many of the data visualizations in the associated paper were very specific turtles movements within a small area, the Leaflet package allowed me to create an interactive map that showed the turtles' paths. I chose to visualize this data with the leaflet package because it is much more accessible to a larger population. Also the interactivity of the map can help captivate audiences beyond marine biology scientists.  
-  
-## Source
-Mansfield, Katherine; Wyneken, Jeanette; Luo, Jiangang (2021), First Atlantic satellite tracks of lost years green turtles support the importance of the Sargasso Sea as a sea turtle nursery, Dryad, Dataset.  
-[Data set](https://doi.org/10.5061/dryad.x95x69ph9)  
-[Journal Article](https://doi.org/10.1098/rspb.2013.3039)  
 
+## Introduction
+
+In my final project, I decided to look at leaflet package and use it specifically to represent data from a Dryad data set. The paper associated with this data set focused on some of the long-term movements of oceanic-stage juvenile sea turtles. While many of the data visualizations in the associated paper were very specific turtles movements within a small area, the Leaflet package allowed me to create an interactive map that showed the turtles' paths. I chose to visualize this data with the leaflet package because it is much more accessible to a larger population. Also the interactivity of the map can help captivate audiences beyond marine biology scientists.
+
+## Source
+
+Mansfield, Katherine; Wyneken, Jeanette; Luo, Jiangang (2021), First Atlantic satellite tracks of lost years green turtles support the importance of the Sargasso Sea as a sea turtle nursery, Dryad, Dataset.\
+[Data set](https://doi.org/10.5061/dryad.x95x69ph9)\
+[Journal Article](https://doi.org/10.1098/rspb.2013.3039)
 
 ### Load Libraries
+
 ```{r message = FALSE}
 library(tidyverse) #The tidyverse package must first be installed by typing install.packages("tidyverse") in the Console
 library(leaflet) #The leaflet package must first be installed by typing install.packages("leaflet") in the Console
 ```
 
+### Loading Data Set
 
-### Loading Data Set  
-The data set was first downloaded from Dryad Data and then was placed in the project folder (in subfolder "Data"). Then the data was read in using the read.csv() function.  
+The data set was first downloaded from Dryad Data and then was placed in the project folder (in subfolder "Data"). Then the data was read in using the read.csv() function.
+
 ```{r}
 turtle <- read.csv("Data/Loggerhead_tracks_interpolated_Mansfield_et_al_2014.csv")
 ```
 
-The table function was used to determine the number of turtles being tracked.  
+The table function was used to determine the number of turtles being tracked.
+
 ```{r}
 table(turtle$Turtle.ID)
 ```
 
 11 neonate Atlantic loggerhead turtles were tracked from 2010-2011.
-![](https://i.pinimg.com/originals/8c/26/f3/8c26f3e2b10e6a1e3ee507ebca24bafd.jpg)
+They were tagged between the age of 3.5 to 9 months. They waited until the turtles had reached between 4 inches and 7 inches (11 to 18 cm) in length before tagging them and releasing them into the Atlantic Ocean.
+![](https://i.pinimg.com/originals/8c/26/f3/8c26f3e2b10e6a1e3ee507ebca24bafd.jpg) ![](https://www.sciencenews.org/wp-content/uploads/2017/12/122017_SZ_seaturtle_feat.jpg)
 
-## Create Labels  
+## Create Labels
+
 When the points are created in the final leaflet map they should be labelled with the Turtle ID number and the date and time at which they were at this location
 
 ```{r}
@@ -46,11 +53,12 @@ labs <- paste0("<strong>", "Turtle ID:  ",
                turtle$GMT)
 ```
 
+## Create Color Pallete
 
-## Create Color Pallete  
-To differentiate between the different turtles, the color of the turtles' path must be different colors. A color palette with 11 different colors (number of turtles) was created and saved as a function called "my_pal". 
+To differentiate between the different turtles, the color of the turtles' path must be different colors. A color palette with 11 different colors (number of turtles) was created and saved as a function called "my_pal".
 
 Each Turtle ID number corresponds with a different color, and is commented within the code.
+
 ```{r}
 my_pal <- colorFactor(palette = c("black", # 85511
                                "red", # 85512
@@ -66,19 +74,21 @@ my_pal <- colorFactor(palette = c("black", # 85511
                    domain = turtle$Turtle.ID) # The domain argument ensures that the colors are associated with the Turtle.ID column of the data set
 ```
 
+## Change Turtle ID variable to characters
 
-## Change Turtle ID variable to characters  
-In order to create different layers for each group of points for the turtles, the Turtle ID numbers must be turned into characters. Otherwise R recognizes these data as numbers instead of names for the turtles.  
+In order to create different layers for each group of points for the turtles, the Turtle ID numbers must be turned into characters. Otherwise R recognizes these data as numbers instead of names for the turtles.
 
 ```{r}
 str(turtle) # To check the data type of each variable
 turtle$Turtle.ID <- as.character(turtle$Turtle.ID) # Changes to the Turtle.ID variable data type to characters from numbers
 str(turtle)
 ```
+
 Goes from type integer to type character.
 
-## Create Leaflet  
-The leaflet was created to be a more accesible way to access the turtle tracking data. It allows the viewer to pick up on trends discussed in the paper like the relationship between turtle path and ocean depth within a user-friendly interactive map. The code to create this leaflet is commented so it can be followed and reproduced.  
+## Create Leaflet
+
+The leaflet was created to be a more accesible way to access the turtle tracking data. It allows the viewer to pick up on trends discussed in the paper like the relationship between turtle path and ocean depth within a user-friendly interactive map. The code to create this leaflet is commented so it can be followed and reproduced.
 
 ```{r message = FALSE}
 turtlemap <- turtle %>%
@@ -98,8 +108,3 @@ turtlemap <- turtle %>%
   )
 turtlemap # print the map
 ```
-
-
-
-
-
